@@ -1,0 +1,11 @@
+torch
+transformers
+datasets
+wandb
+openai
+accelerate
+deepspeed
+evaluate
+rouge_score
+ipywidgets
+bert_score
