@@ -38,6 +38,10 @@ def prepare_dataloader(args, tokenizer):
         dataset["train"],
         batch_size=args.batch_size,
         collate_fn=default_data_collator,
+        shuffle=True,
+        num_workers=4,
+        persistent_workers=True,
+        pin_memory=True,
     )
 
     return train_loader

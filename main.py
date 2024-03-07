@@ -44,8 +44,6 @@ def main_xla(args):
     else:
         xr.initialize_cache("model_cache", readonly=True)
 
-    xm.rendezvous("sync")
-
     if xm.is_master_ordinal(local=False) and xr.host_index() == 0:
         if xm.is_master_ordinal(local=False) and xr.host_index() == 0:
             setup_logging()

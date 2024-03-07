@@ -8,4 +8,5 @@ deepspeed
 evaluate
 rouge_score
 ipywidgets
+ipykernel
 bert_score

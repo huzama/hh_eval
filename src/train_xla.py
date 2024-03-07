@@ -13,6 +13,7 @@ import torch_xla.distributed.parallel_loader as pl
 import torch_xla.distributed.spmd as xs
 import torch_xla.experimental.distributed_checkpoint as xc
 import torch_xla.runtime as xr
+import wandb
 from evaluate import load
 from tqdm import tqdm
 from transformers import (
@@ -21,7 +22,6 @@ from transformers import (
     get_cosine_schedule_with_warmup,
 )
 
-import wandb
 from src.dataset import prepare_dataloader
 from src.utils import print_stats
 
@@ -63,7 +63,7 @@ class Trainer:
         logger.info(f"Number of Devices: {self.num_devices}")
 
         self.device_ids = np.array(range(self.num_devices))
-        mesh_shape = (8, 8)
+        mesh_shape = (2, 2)
 
         self.spda_mesh = xs.Mesh(self.device_ids, mesh_shape, ("model", "data"))
 
